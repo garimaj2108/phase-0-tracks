@@ -1,0 +1,28 @@
+/* ID makes contact text smaller */
+#contact-info {
+    font-size: .6em;
+}
+
+/* Style job sections */
+.job {
+    padding: 2px;
+    padding-left: 8px;
+    margin: 10px;
+    background-color: #e9e5dc;
+    border-radius: 5px;
+}
+
+/* Class makes list text smaller */
+.myLists {
+    font-size: .8em;
+}
+
+/*Pseudo Selectors*/
+.myLists:hover {
+    color: #DBA901;
+}
+
+/*Adding Child Element*/
+li:first-child{
+  color:green;
+}
