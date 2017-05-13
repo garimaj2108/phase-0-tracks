@@ -39,5 +39,20 @@ end
 # Then we will use elsif to determine what to do when we encounter " "
 # Now we will subtract the stored index with 1 and store it
 # ------------------------------------------------------------
+def decrypt (input)
+  alphabet ="abcdefghijklmnopqrstuvwxyz"
+  index = 0
 
+  while index < input.length
+    decrypted_word = alphabet.index(input[index])
+    if input[index] == " "
+      puts "Do nothing"
+    else
+    # otherwise, change this aforementioned value index for a prior letter
+      input[index] = alphabet[decrypted_word-1]
+  end
+  index +=1
+end
+  input
+end
 
