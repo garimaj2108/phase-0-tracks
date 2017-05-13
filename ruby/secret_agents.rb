@@ -56,3 +56,29 @@ end
   input
 end
 
+#---------------------------------------------------
+=begin
+  Taking user input and calling the defined methods on the input
+=end
+
+puts "Please enter whether you would like to decrypt or encrypt a password (Enter values encrypt or decrypt)"
+action = gets.chomp
+
+puts "Please enter your password. It should include alphabets and numbers"
+password = gets.chomp
+
+# if encrypt is called on, call the encrypt method
+if action =="encrypt"
+  encryption= encrypt(password)
+  puts "Your encrypted password is #{encryption}"
+
+# if decrypt is called on, call the decrypt method
+elsif action == "decrypt"
+  decryption= decrypt(password)
+  puts "Your encrypted password is #{decryption}"
+else
+  puts "Please enter a valid input"
+end
+
+
+
