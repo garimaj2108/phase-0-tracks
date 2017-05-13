@@ -10,7 +10,7 @@ while i <= no_of_employee.to_i
   puts "What is your name?"
   employee_name = gets.chomp
 
-  # Getting employee's age and year of birth (Age should be less than 100)
+  # Getting employee's age and year of birth
   puts "Please provide your age."
   age = gets.to_i
 
@@ -18,6 +18,7 @@ while i <= no_of_employee.to_i
   year = gets.to_i
 
   current_year = 2017
+  # Verifies the age of age of employee with its year of birth
   age_validity = current_year.to_i - year
 
   # Ask the employee if they would like garlic bread to eat
