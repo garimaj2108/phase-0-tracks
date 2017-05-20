@@ -23,6 +23,23 @@ puts "#{key} => #{value}"
 end
 
 
+puts "Would you like to update the form? (yes / no)"
+input = gets.chomp
+if input == "yes"
+  puts "Enter which form field would you like to update? (name /age/email/children/decor)"
+  form_field = gets.chomp
+  form_field = form_field.to_sym
+  puts "Please enter the new value"
+  update = gets.chomp
+  client_details[form_field] = update
+end
+
+client_details.each do|key,value|
+puts "#{key} => #{value}"
+end
+
+
+
 
 
 
