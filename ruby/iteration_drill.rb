@@ -20,16 +20,17 @@ end
 # Organizer
 def my_sort(array_1, new_array = nil)
   index = 0
+  index2 = 1
 
-  if array_1.size << 0
-     return new_array
-   end
   if new_array == nil
     new_array = []
   end
-  min = array_1[index] < array_1[index+1]
-  new_array << min
-  my_sort(list, new_array)
+  if
+  array_1[index] > array_1[index2]
+  array_1[index],array_1[index2] = array_1[index2],array_1[index]
+  new_array << array_1
+  my_sort(array_1, new_array)
+end
 
 end
 my_sort([zombie_apocalypse_supplies])
