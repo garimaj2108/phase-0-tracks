@@ -18,22 +18,24 @@ end
 # in alphabetical order. Do not use any special built-in methods.
 # ----
 # Organizer
-def my_sort(array_1, new_array = nil)
+
+def my_sort(array_1)
   index = 0
-  index2 = 1
-
-  if new_array == nil
-    new_array = []
-  end
-  if
-  array_1[index] > array_1[index2]
+  while index < array_1.length
+  index2 = index + 1
+  while index2 < array_1.length
+  if array_1[index] > array_1[index2]
   array_1[index],array_1[index2] = array_1[index2],array_1[index]
-  new_array << array_1
-  my_sort(array_1, new_array)
-end
+  end
+  index2 += 1
+ end
+ index += 1
+ end
+ return array_1
+ end
 
-end
-my_sort([zombie_apocalypse_supplies])
+zombie_apocalypse_supplies = ["hatchet", "rations", "water jug", "binoculars","shotgun", "compass", "CB radio", "batteries"]
+my_sort(zombie_apocalypse_supplies)
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
