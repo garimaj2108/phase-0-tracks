@@ -54,13 +54,7 @@ def is_there (supplies)
 end
 end
 
-puts "Please enter the item you are looking for!(enter exit when you are done)"
-item = gets.chomp.downcase
-while item != "exit"
-  status = is_there(item)
-  puts "Enter another item:"
-  item = gets.chomp.downcase
-end
+is_there("hatchet")
 
 # 4. You can't carry too many things, you've only got room in your pack for 5.
 # Remove items in your zombie_apocalypse_supplies in any way you'd like,
