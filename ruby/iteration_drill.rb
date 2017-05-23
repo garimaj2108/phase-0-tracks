@@ -13,9 +13,26 @@ zombie_apocalypse_supplies.each do |supplies|
 end
 
 
+
 # 2. In order to keep yourself organized, sort your zombie_apocalypse_supplies
 # in alphabetical order. Do not use any special built-in methods.
 # ----
+# Organizer
+def my_sort(array_1, new_array = nil)
+  index = 0
+
+  if array_1.size << 0
+     return new_array
+   end
+  if new_array == nil
+    new_array = []
+  end
+  min = array_1[index] < array_1[index+1]
+  new_array << min
+  my_sort(list, new_array)
+
+end
+my_sort([zombie_apocalypse_supplies])
 
 # 3. Create a method to see if a particular item (string) is in the
 # zombie_apocalypse_supplies. Do not use any special built-in methods.
