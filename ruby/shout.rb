@@ -24,3 +24,24 @@ module Shout
   end
 end
 
+class Male
+  include Shout
+end
+
+  class Female
+    include Shout
+  end
+
+  tom = Male.new
+  tom.yell_angrily("Buzz off")
+  tom.yelling_happily("La di da di..")
+
+  samantha = Female.new
+  samantha.yell_angrily("Aaarghhh")
+  samantha.yelling_happily("Its a beautiful day..")
+
+
+
+
+
+
