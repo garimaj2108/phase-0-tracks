@@ -97,3 +97,29 @@ remove_item(example, "Lemonade")
 update_quantity(example,"Ice Cream",1)
 print_list(example)
 
+# Release 4: Reflect
+=begin
+-----------------------------------------
+What did you learn about pseudocode from working on this challenge?
+- It really helps you with the actual code, because pseudo code make you systematically think about the input, steps and output.
+- I am going to use this format for all my further assisgnments.
+-----------------------------------------
+What are the tradeoffs of using arrays and hashes for this challenge?
+I think arrays and hashes work perfectly for this assignment.
+-----------------------------------------
+What does a method return?
+A method implicitly returns the last line of the code.
+-----------------------------------------
+What kind of things can you pass into methods as arguments?
+- You can pass a integer, string, array, hash,another method or a variable which contains any of the above data types or method as a argument to methods.
+-----------------------------------------
+How can you pass information between methods?
+- You can call one method inside another method or simply store a method in a variable and call that variable in other methods.
+- This will allow the other method to access the first method.
+- You will pass either of these as a argument to a method.
+-----------------------------------------
+What concepts were solidified in this challenge, and what concepts are still confusing?
+- I was very relieved to do this particular GPS, because prior to this I was struggling a lot with passing methods around, but now I feel more confident.
+- With some practice I think I should be set.
+-----------------------------------------
+=end
