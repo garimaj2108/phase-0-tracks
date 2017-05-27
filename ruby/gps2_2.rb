@@ -86,3 +86,14 @@ def print_list(list)
 end
 
 
+# driver code
+example = create_list("Carrots Apples Cereal Pizza")
+add_item(example,"Lemonade", 2)
+add_item(example,"Tomatoes", 3)
+add_item(example,"Onions")
+add_item(example,"Ice Cream", 4)
+print_list(example)
+remove_item(example, "Lemonade")
+update_quantity(example,"Ice Cream",1)
+print_list(example)
+
