@@ -41,20 +41,50 @@ class Santa
     end
     puts "Now the reindeer ranking is #{ @reindeer_ranking}"
   end
+
+=begin
+# getter method
+  def age
+    @age
+  end
+
+#getter method
+  def ethnicity
+    @ethnicity
+  end
+
+#getter method
+def gender
+  @gender
+end
+
+# setter method
+  def gender=(new_gender)
+    @gender = new_gender
+  end
+=end
+
 end
 
 #santas = []
+# Array of example genders
 example_genders = ["agender", "female", "male", "bigender", "gender fluid", "N/A"]
+# Array of example ethnicities
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
+# Iterate 100 times
 100.times do
 
+# Create a new instance of class Santa
   new_santa = Santa.new(example_genders.sample, example_ethnicities.sample)
+# santas << new_santa - had declared an array earlier
 
+# set gender to unknown if meets condition
   if example_genders == "N/A"
     new_santa.gender = "unknown"
     puts "Now the gender is #{new_santa.gender}"
   end
 
+# Driver code
   new_santa.speak
   new_santa.eat_milk_and_cookies("Macadamia nut")
   puts"Santa is currently #{new_santa.age} years old."
