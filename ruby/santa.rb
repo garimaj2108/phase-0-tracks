@@ -19,7 +19,7 @@ class Santa
     @gender = gender
     @ethnicity = ethnicity
     @reindeer_ranking = ["Rudolph", "Dasher", "Dancer", "Prancer", "Vixen", "Comet", "Cupid", "Donner", "Blitzen"]
-    @age = 0
+    @age = rand(140)
     puts "Initializing a #{@gender} Santa instance"
   end
 
@@ -43,31 +43,25 @@ class Santa
   end
 end
 
-santas = []
+#santas = []
 example_genders = ["agender", "female", "male", "bigender", "gender fluid", "N/A"]
 example_ethnicities = ["black", "Latino", "white", "Japanese-African", "prefer not to say", "Mystical Creature (unicorn)", "N/A"]
-example_genders.length.times do |i|
-  new_santa = Santa.new(example_genders[i], example_ethnicities[i])
-  santas << new_santa
-  if example_genders[i] == "bigender" || example_genders[i] == "gender fluid"
-    puts "You go Santa!"
-  end
-  if example_ethnicities[i] == "white" && example_genders[i] == "male"
-    puts "Too cliche for a Santa"
-  end
-  if example_genders[i] == "N/A"
+100.times do
+
+  new_santa = Santa.new(example_genders.sample, example_ethnicities.sample)
+
+  if example_genders == "N/A"
     new_santa.gender = "unknown"
     puts "Now the gender is #{new_santa.gender}"
   end
 
+  new_santa.speak
+  new_santa.eat_milk_and_cookies("Macadamia nut")
+  puts"Santa is currently #{new_santa.age} years old."
+  puts" Santa's ethnicity is #{new_santa.ethnicity}"
+  new_santa.celebrate_birthday
+  new_santa.get_mad_at("Dancer")
+
 end
 
-  santas.each do |instance|
-  instance.speak
-  instance.eat_milk_and_cookies("Macadamia nut")
-  puts"Santa is currently #{instance.age} years old."
-  puts" Santa's ethnicity is #{instance.ethnicity}"
-  instance.celebrate_birthday
-  instance.get_mad_at("Dancer")
-end
 
