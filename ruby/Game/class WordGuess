@@ -1,0 +1,78 @@
+class WordGuess
+  attr_accessor :guess_count,:guess_store, :guess_index
+
+  def initialize
+    @guess_count = 0
+  end
+
+  def word_guess(input_word, guessed_letters)
+    @input_word = input_word
+    @guessed_letters  = guessed_letters
+    @guess_store = Array.new(@input_word.length,"_")
+    p @guess_store
+    @guess_index = @input_word.index(@guessed_letters)
+    #puts @guess_index
+    #@input_word.each do |letter|
+    if @input_word.include?(@guessed_letters)
+      @guess_store[@guess_index] << @guessed_letters
+      @guess_store
+      #@guess_store.insert(@guess_index, @guessed_letters)
+    else
+      puts "Wrong guess! Keep Trying :)"
+    end
+  end
+
+
+
+=begin
+    @input_word = input_word
+    @guessed_letters = guessed_letters
+    #@guess_store1 = []
+    @guess_store2 = []
+    @guess_store1 << @input_word
+    if @input_word.include?(@guessed_letters)
+      @guess_store << @guessed_letters
+      puts " You guessed #{@guess_count+1} letters!"
+    else
+      puts "Try again!"
+    end */
+    @guess_store
+  end
+=end
+
+
+
+  def result(user_input_1,user_input_2)
+    if @user_input_2.eql?(@user_input_1)
+      puts "Congrats"
+    else
+      puts "boo!"
+    end
+  end
+
+end
+
+
+new_game = WordGuess.new # Initializing and creating a new object
+#new_game.i = 0
+
+puts "Welcome to the Word Guessing game!"
+puts "Player 1: Please enter a word for your opponent to guess!"
+player_1 = gets.chomp.split('')
+
+puts "Player 2: Your opponent has just assigned a word for you to guess!"
+display = "_ " * player_1.length
+p display
+
+puts "Start guessing..."
+while new_game.guess_count < player_1.length
+  player_2 = gets.chomp
+  new_game.word_guess(player_1,player_2)
+  puts "You guessed #{new_game.guess_count+1} letter"
+  new_game.guess_count += 1
+  puts "Enter another character"
+end
+p new_game.guess_store
+
+
+

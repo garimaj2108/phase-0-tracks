@@ -3,15 +3,16 @@ class WordGuess
   attr_reader :guess_index, :guessed_letters, :input_word
 
 # initialize method
-  def initialize
-    @guess_count = 0
-  end
 
-  def player_input(input_word, guessed_letters,guess_store)
-    # Assigning parameters to instance variables
+  def initialize(input_word)
+    @guess_count = 0
     @input_word = input_word
-    @guessed_letters  = guessed_letters
-    @guess_store = guess_store
+    @guess_store = Array.new(input_word.length,"_")
+  end
+ 
+  def player_input(guessed_letters)
+    # Assigning parameters to instance variables
+    @guessed_letters  = guessed_letters  
   end
 
 
@@ -39,11 +40,13 @@ class WordGuess
 end # Class ends
 
 # Driver Code
-new_game = WordGuess.new # Initializing and creating a new object
+
+new_game = WordGuess.new("unicorn".split('')) # Initializing and creating a new object
 
 puts "Welcome to the Word Guessing game!"
 puts "Player 1: Please enter a word for your opponent to guess!"
-player_1 = "unicorn".split('')
+player_1 = new_game.input_word
+p player_1
 
 puts "Player 2: Your opponent has just assigned a word for you to guess!"
 display = "_ " * player_1.length
@@ -51,18 +54,19 @@ p display
 
 puts "Start guessing..."
 
-guess_store = Array.new(player_1.length,"_")
-p guess_store
-
   while new_game.guess_count < player_1.length
+    
     # Taking input from player two
     player_2 = gets.chomp
+    
     # Calling word_guess method from class WordGuess
-    new_game.player_input(player_1,player_2,guess_store)
+    new_game.player_input(player_2)
+    
     if new_game.guess_store.include?new_game.guessed_letters
       new_game.guess_count -= 1
       puts "Repeated guess! Enter a different letter to guess the word!"
     end
+    
     new_game.word_guess
     puts "You guessed #{new_game.guess_count+1} letters"
     new_game.guess_count += 1
