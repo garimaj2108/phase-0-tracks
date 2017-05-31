@@ -1,11 +1,11 @@
 # Virus Predictor
 
-# I worked on this challenge [by myself, with: ].
-# We spent [#] hours on this challenge.
+# I worked on this challenge [by myself, with: Alphonso Tran].
+# We spent [1.5] hours on this challenge.
 
 # EXPLANATION OF require_relative
-#
-#
+# Require relative loads a file relative to the location you are in.
+
 require_relative 'state_data'
 
 class VirusPredictor
