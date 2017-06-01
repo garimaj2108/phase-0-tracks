@@ -22,3 +22,24 @@ for (i=0; i < colors.length; i++){
 }
 
 console.log(barn);
+
+console.log("Enough with the horses, now is the time to move on to Cars!");
+console.log("\n");
+
+// declaring a constructor function
+function Car(make, model, year) {
+  // Here this refers to the new object we are making
+  console.log("Our new car is:", this);
+
+// Assigning user input to constructor variables
+  this.make = make;
+  this.model = model;
+  this.year = year;
+
+// declaring a function, which prints all the details of our car
+  this.display = function() {console.log("Car details: " +this.make +" " +this.model +" " +this.year +".")};
+  console.log("CAR INITIALIZATION COMPLETE");
+}
+
+
+
