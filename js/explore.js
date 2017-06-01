@@ -14,3 +14,15 @@ function reverse(word){
 
   return new_word;
 }
+
+// Driver Code
+
+// Used prompt keyword to accept user input
+var rev_word = prompt("Enter a word/phrase to reverse!");
+
+// Conditional
+if (rev_word.length < 10) {
+  console.log(reverse(rev_word));
+}else{
+  console.log("The word/ phrase entered is longer than 10 letters!")
+}
