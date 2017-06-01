@@ -41,5 +41,32 @@ function Car(make, model, year) {
   console.log("CAR INITIALIZATION COMPLETE");
 }
 
+// Driver Code
+
+console.log("Let's build a new car!");
+// Calling the constructor function
+var myCar = new Car("Nissan","Altima","2014");
+console.log(myCar);
+myCar.display();
+console.log("--------------");
+
+console.log("Let's build another car!");
+// Calling the constructor function
+var yourCar = new Car("Honda","Accura","2017");
+console.log(yourCar);
+yourCar.display();
+console.log("--------------");
+
+console.log("Why not another car!");
+// Calling the constructor function
+var lastCar = new Car("Ford","Focus","2010");
+console.log(lastCar);
+lastCar.display();
+console.log("--------------");
+
+
+
+
+
 
 
