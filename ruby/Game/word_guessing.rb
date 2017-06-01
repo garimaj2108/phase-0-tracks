@@ -8,13 +8,15 @@ class WordGuess
     @guess_count = 0
     @input_word = input_word
     @guess_store = Array.new(input_word.length,"_")
-  end
- 
-  def player_input(guessed_letters)
-    # Assigning parameters to instance variables
-    @guessed_letters  = guessed_letters  
+    @guessed_letters = []
   end
 
+=begin
+    def player_input(guessed_letters)
+    # Assigning parameters to instance variables
+    @guessed_letters  = guessed_letters
+  end
+=end
 
 # Method which stores and compares input of both the game users
   def word_guess
@@ -55,18 +57,18 @@ p display
 puts "Start guessing..."
 
   while new_game.guess_count < player_1.length
-    
+
     # Taking input from player two
     player_2 = gets.chomp
-    
+
     # Calling word_guess method from class WordGuess
     new_game.player_input(player_2)
-    
+
     if new_game.guess_store.include?new_game.guessed_letters
       new_game.guess_count -= 1
       puts "Repeated guess! Enter a different letter to guess the word!"
     end
-    
+
     new_game.word_guess
     puts "You guessed #{new_game.guess_count+1} letters"
     new_game.guess_count += 1
