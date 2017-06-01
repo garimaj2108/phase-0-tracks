@@ -18,8 +18,8 @@ function reverse(word){
 
 // Driver Code
 
-// Used prompt keyword to accept user input
-var rev_word = prompt("Enter a word/phrase to reverse!");
+console.log ("Enter a word/phrase to reverse!");
+var rev_word = "Hi there!"
 
 // Conditional
 if (rev_word.length < 10) {
