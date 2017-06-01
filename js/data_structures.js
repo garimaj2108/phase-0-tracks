@@ -1,3 +1,5 @@
+// Paired with Tony Rodriguez for this assignment
+
 // A color array
 var colors = ["Brown", "Black", "Yellow", "White"];
 // A array of horse names
