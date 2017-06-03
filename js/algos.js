@@ -29,14 +29,40 @@ function longest_word(input_array) {
 
 // -----------------------------------------------
 
+// function for finding a key-value match
 /* Pseudocode:
 - The function will accept two hashes.
 - If the key of hash_1 ,matches with the key of hash_2 && if the value of hash_1 matches with the value of hash_2, then we will find our matched key-value pair.
 - Otherwise,  key-value pairs in the two hashes are not matching.
 */
 
+// The function accepts two hashes as input
+function match_hash(hash_1, hash_2){
+  // Looping through both the hashes
+  for (var key in hash_1){
+    for(var key_1 in hash_2){
+    // If the keys of both hash match and the value of both hash match
+    if (key === key_1 && hash_1[key] === hash_2[key_1]) {
+      console.log("The matched pair between two hashes is: " +key +" => "  + "\'" + hash_1[key] + "\'");
+    }
+    // If the above condition doesn't match
+    else {
+      console.log(key + " => " + "\'" + hash_1[key] + "\'" + " does not match, " + key_1 + " => " + "\'" + hash_2[key_1] + "\'");
+    }
+    }
+  }
+}
+
+//------------------------------------------------
 
 // Driver Code
 console.log("The longest word is " +longest_word(["Glenna", "Rishabh", "Kim"]));
+console.log("---------------------------")
 console.log("The longest word is " +longest_word(["hey there", "hey", "hey there!!"]));
+console.log("---------------------------")
 console.log("The longest word is " +longest_word(["Everybode quotes", "unquote", "I quote"]));
+console.log("---------------------------")
+console.log(match_hash({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
+console.log("---------------------------")
+
+
