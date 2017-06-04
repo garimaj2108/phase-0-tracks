@@ -55,6 +55,18 @@ function match_hash(hash_1, hash_2){
 
 //------------------------------------------------
 
+// function for finding a key-value match
+/* Pseudocode:
+- The function will accept a integer.
+- Create a empty array
+- Loop through the code and push words into array until it reaches the length of the array (length of array is the integer accepted in the function)
+- Declare a variable that contains all alphabets
+- Declare a variable that contains an empty string
+- Loop through until it reaches the randomly generated number
+- Add each looped letter to the word variable
+- Push word to the array
+*/
+
 // Driver Code
 console.log("The longest word is " +longest_word(["Glenna", "Rishabh", "Kim"]));
 console.log("---------------------------")
@@ -64,5 +76,10 @@ console.log("The longest word is " +longest_word(["Everybode quotes", "unquote",
 console.log("---------------------------")
 console.log(match_hash({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
 console.log("---------------------------")
+console.log(match_hash({name: "Steven", age: 54}, {name: "Tamir", year: 54}));
+console.log("---------------------------")
+
+
+
 
 
