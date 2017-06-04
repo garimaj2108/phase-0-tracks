@@ -82,21 +82,32 @@ function random_words(number) {
     }
     my_array.push(word);
   }
-  return word;
+  return my_array;
 }
 
 
-// Driver Code
-console.log("The longest word is " +longest_word(["Glenna", "Rishabh", "Kim"]));
+// Driver Code for the longest_word function
+console.log("The longest word is " +longest_word(["Glenna", "Andromeda", "Kim"]));
 console.log("---------------------------")
 console.log("The longest word is " +longest_word(["hey there", "hey", "hey there!!"]));
 console.log("---------------------------")
 console.log("The longest word is " +longest_word(["Everybode quotes", "unquote", "I quote"]));
 console.log("---------------------------")
+
+// Driver Code for the match_hash function
 console.log(match_hash({name: "Steven", age: 54}, {name: "Tamir", age: 54}));
 console.log("---------------------------")
 console.log(match_hash({name: "Steven", age: 54}, {name: "Tamir", year: 54}));
 console.log("---------------------------")
+
+// Driver Code for the random_words function
+for (var i =0; i < 10; i++) {
+  var random_data = random_words((Math.floor(Math.random()*10)+ 1));
+  console.log(random_data);
+  console.log("The longest word is " +longest_word(random_data));
+}
+console.log("---------------------------")
+
 
 
 
