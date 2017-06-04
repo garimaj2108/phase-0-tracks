@@ -55,17 +55,36 @@ function match_hash(hash_1, hash_2){
 
 //------------------------------------------------
 
-// function for finding a key-value match
+// function for generating random test data
 /* Pseudocode:
 - The function will accept a integer.
 - Create a empty array
 - Loop through the code and push words into array until it reaches the length of the array (length of array is the integer accepted in the function)
 - Declare a variable that contains all alphabets
 - Declare a variable that contains an empty string
-- Loop through until it reaches the randomly generated number
+- Loop through each letter until it reaches the randomly generated number
 - Add each looped letter to the word variable
+- The word's length will be equal to the randomly generated number
 - Push word to the array
 */
+
+// This function accepts an integer as input
+function random_words(number) {
+  // Declared an empty array
+  var my_array =[];
+  // Looping until the words generated reach the input number
+  for(var j = 0; j < number; j++) {
+    var alphabet = "abcdefghijklmnopqrstuvwxyz";
+    var word ="";
+  // Looping until each letter joins in to reach the randomly generated number
+    for (var i =0; i < Math.floor(Math.random()*10 + 1); i++) {
+      word += (alphabet[(Math.floor(Math.random() * alphabet.length))]);
+    }
+    my_array.push(word);
+  }
+  return word;
+}
+
 
 // Driver Code
 console.log("The longest word is " +longest_word(["Glenna", "Rishabh", "Kim"]));
