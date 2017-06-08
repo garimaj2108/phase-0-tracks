@@ -1,0 +1,21 @@
+
+2. JOINING ALL THREE TABLES
+SELECT *
+FROM businesses,  users  JOIN reviews ON (reviews.business_ids= businesses.business_id AND reviews.user_ids = users.user_id) ;
+
+-------------------------------------------------------
+
+3. SELECTING WHAT TO DISPLAY IN THE JOIN
+SELECT businesses.business_name AS 'Business Name',  reviews.review_star AS 'Rating',  reviews.comments AS 'Comments',  users.first_name AS 'review_by'
+FROM businesses,  users  JOIN reviews ON (reviews.business_ids= businesses.business_id AND reviews.user_ids = users.user_id) ;
+
+-------------------------------------------------------
+
+4. SELECTING WHICH ROW TO DISPLAY, BY SPECIFYING THE BUSINESS ID YOU WANT TO QUERY
+SELECT *
+FROM businesses,  users  JOIN reviews ON (reviews.business_ids= businesses.business_id AND reviews.user_ids = users.user_id)
+WHERE reviews.business_ids = 4;
+
+-------------------------------------------------------
+
+
