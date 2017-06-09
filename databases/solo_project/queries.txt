@@ -1,3 +1,5 @@
+RELEASE 2
+
 Q 1.
 QUERY:-
 SELECT * FROM customer;
@@ -44,7 +46,116 @@ OUTPUT:-
 1|Roger|Paul|rogerr_paul@yahoo.com|7|Men's shorts|1
 
 -------------------------------------------------------
+Q 4.
+QUERY:-
+SELECT customer.first_name AS 'First Name', customer.last_name AS 'Last Name', orders.order_description AS 'Order Details'
+FROM customer, orders
+WHERE  orders.cust_id = customer.customer_id;
 
+OUTPUT:-
+Angie|Caprio|Spiralizer - With free e-book
+Roger|Paul|Mens Nike Running Shoes
+Minh|Wang|Movado Women's Steel Collection Watch
+Derek|Parsian|Men's Hair Gel
+Annie|Bleich|Summer sandals
+Minh|Wang|Summer off the shoulder dress
+Roger|Paul|Men's shorts
 
+-------------------------------------------------------
+Q 5.
+BEFORE EXECUTING THE DELETE QUERY:-
+sqlite> SELECT * FROM orders;
+1|Spiralizer - With free e-book|3
+2|Mens Nike Running Shoes|1
+3|Movado Women's Steel Collection Watch|4
+4|Men's Hair Gel|2
+5|Summer sandals|5
+6|Summer off the shoulder dress|4
+7|Men's shorts|1
 
+QUERY:-
+DELETE FROM orders WHERE orders.cust_id = 5;
+
+OUTPUT AFTER DELETING:-
+QUERY:- SELECT * FROM orders
+1|Spiralizer - With free e-book|3
+2|Mens Nike Running Shoes|1
+3|Movado Women's Steel Collection Watch|4
+4|Men's Hair Gel|2
+6|Summer off the shoulder dress|4
+7|Men's shorts|1
+
+------------------------------------------------------
+RELEASE 3
+
+INNER JOIN QUERY:-
+SELECT customer.first_name, customer.last_name, orders.order_description
+FROM customer INNER JOIN orders on orders.cust_id = customer.customer_id;
+
+OUTPUT:-
+Angie|Caprio|Spiralizer - With free e-book
+Roger|Paul|Mens Nike Running Shoes
+Minh|Wang|Movado Women's Steel Collection Watch
+Derek|Parsian|Men's Hair Gel
+Minh|Wang|Summer off the shoulder dress
+Roger|Paul|Men's shorts
+
+INNER JOIN AUTOMATICALLY DISCARDS ANNIE BLEICH AS SHE DOES NOT HAVE ANY ORDERS
+------------------------------------------------------
+LEFT JOIN QUERY:-
+SELECT customer.first_name, customer.last_name, orders.order_id, orders.order_description
+FROM customer
+LEFT JOIN orders ON customer.customer_id = orders.cust_id;
+
+OUTPUT:-
+Roger|Paul|7|Men's shorts
+Roger|Paul|2|Mens Nike Running Shoes
+Derek|Parsian|4|Men's Hair Gel
+Angie|Caprio|1|Spiralizer - With free e-book
+Minh|Wang|3|Movado Women's Steel Collection Watch
+Minh|Wang|6|Summer off the shoulder dress
+Annie|Bleich||
+
+LEFT JOIN INCLUDES ALL ATTRIBUTES AND ITS VALUES IN THE LEFT TABLE, IRRESPECTIVE OF WHETHER THAT CUSTOMER HAS PLACED ORDER OR NOT
+
+------------------------------------------------------
+CROSS JOIN QUERY:-
+SELECT customer.first_name, customer.last_name, orders.order_id, orders.order_description
+FROM customer CROSS JOIN orders;
+
+OUTPUT:-
+Roger|Paul|1|Spiralizer - With free e-book
+Roger|Paul|2|Mens Nike Running Shoes
+Roger|Paul|3|Movado Women's Steel Collection Watch
+Roger|Paul|4|Men's Hair Gel
+Roger|Paul|6|Summer off the shoulder dress
+Roger|Paul|7|Men's shorts
+Derek|Parsian|1|Spiralizer - With free e-book
+Derek|Parsian|2|Mens Nike Running Shoes
+Derek|Parsian|3|Movado Women's Steel Collection Watch
+Derek|Parsian|4|Men's Hair Gel
+Derek|Parsian|6|Summer off the shoulder dress
+Derek|Parsian|7|Men's shorts
+Angie|Caprio|1|Spiralizer - With free e-book
+Angie|Caprio|2|Mens Nike Running Shoes
+Angie|Caprio|3|Movado Women's Steel Collection Watch
+Angie|Caprio|4|Men's Hair Gel
+Angie|Caprio|6|Summer off the shoulder dress
+Angie|Caprio|7|Men's shorts
+Minh|Wang|1|Spiralizer - With free e-book
+Minh|Wang|2|Mens Nike Running Shoes
+Minh|Wang|3|Movado Women's Steel Collection Watch
+Minh|Wang|4|Men's Hair Gel
+Minh|Wang|6|Summer off the shoulder dress
+Minh|Wang|7|Men's shorts
+Annie|Bleich|1|Spiralizer - With free e-book
+Annie|Bleich|2|Mens Nike Running Shoes
+Annie|Bleich|3|Movado Women's Steel Collection Watch
+Annie|Bleich|4|Men's Hair Gel
+Annie|Bleich|6|Summer off the shoulder dress
+Annie|Bleich|7|Men's shorts
+
+IN A CROSS JOIN EACH ROW FROM TABLE "customer" WILL JOIN WITH EVERY ROW FROM TABLE "orders"
+
+------------------------------------------------------
 
