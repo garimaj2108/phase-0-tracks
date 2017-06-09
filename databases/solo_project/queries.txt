@@ -1,3 +1,5 @@
+RELEASE 2
+
 Q 1.
 QUERY:-
 SELECT * FROM customer;
@@ -84,6 +86,8 @@ QUERY:- SELECT * FROM orders
 7|Men's shorts|1
 
 ------------------------------------------------------
+RELEASE 3
+
 INNER JOIN QUERY:-
 SELECT customer.first_name, customer.last_name, orders.order_description
 FROM customer INNER JOIN orders on orders.cust_id = customer.customer_id;
