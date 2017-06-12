@@ -128,8 +128,8 @@ puts "Welcome to Menu Management System!"
 puts "This system will help you maintain and manage your menu options!'\n'"
 
 # Based on user input, a specific table will be selected for addition of items
-puts "Enter the table name that you would like to update (Appetizers/ Main course/ Dessert/ No update)"
-table_name = gets.chomp.downcase!
+puts "Enter the table name that you would like to update (appetizers/ main course/ dessert/ no update)"
+table_name = gets.chomp
 
 if table_name == "appetizers"
   while true
@@ -173,8 +173,8 @@ if table_name == "no update"
 end
 
 # To select and update menu combinations
-puts "Please enter if you would like to set Menu options (YES / NO)"
-set_menu = gets.chomp.downcase!
+puts "Please enter if you would like to set Menu options (yes / no)"
+set_menu = gets.chomp
 if set_menu == "yes"
   puts "To exit anytime in the program, type 0"
   while true
@@ -195,23 +195,22 @@ elsif set_menu == "no"
 end
 
 # ----------------------------------------------------
-
-puts "Would you like to update any table? (YES / NO)"
-user_response = gets.chomp.downcase!
-if user_response == "YES"
+puts "Would you like to update any table? (yes / no)"
+user_response = gets.chomp
+if user_response == "yes"
   puts "To exit anytime in the program, type 0 whre numbers have to be entered or enter DONE"
 
-  puts "Which table would you like to update (Appetizer, Main Course OR Dessert)"
-  table_update = gets.chomp.downcase!
+  puts "Which table would you like to update (appetizer, main Course OR dessert)"
+  table_update = gets.chomp
   if table_update == "dessert"
     while true
-    puts "Enter the Dessert id to be updated :"
+    puts "Enter the dessert id to be updated :"
     dessert_id = gets.to_i
     break if dessert_id == 0
-    puts "Enter Dessert name :"
+    puts "Enter dessert name :"
     dessert_name = gets.chomp
     break if dessert_name == "DONE"
-    puts "Enter Dessert description"
+    puts "Enter dessert description"
     dessert_description = gets.chomp
     break if dessert_description == "DONE"
     dessert_update(db, dessert_id, dessert_name, dessert_description)
@@ -220,13 +219,13 @@ if user_response == "YES"
 
   if table_update == "appetizer"
     while true
-    puts "Enter the Appetizer id to be updated :"
+    puts "Enter the appetizer id to be updated :"
     appetizer_id = gets.to_i
     break if appetizer_id == 0
-    puts "Enter Appetizer name :"
+    puts "Enter appetizer name :"
     appetizer_name = gets.chomp
     break if appetizer_name == "DONE"
-    puts "Enter Appetizer description"
+    puts "Enter appetizer description"
     appetizer_description = gets.chomp
     break if appetizer_description == "DONE"
     appetizer_update(db, appetizer_id, appetizer_name, appetizer_description)
@@ -235,13 +234,13 @@ if user_response == "YES"
 
   if table_update == "main course"
     while true
-    puts "Enter the Main course id to be updated :"
+    puts "Enter the main course id to be updated :"
     main_course_id = gets.to_i
     break if main_course_id == 0
-    puts "Enter Main course name :"
+    puts "Enter main course name :"
     main_course_name = gets.chomp
     break if main_course_name == "DONE"
-    puts "Enter Main course description"
+    puts "Enter main course description"
     main_course_description = gets.chomp
     break if main_course_description == "DONE"
     main_course_update(db, main_course_id, main_course_name, main_course_description)
@@ -249,7 +248,7 @@ if user_response == "YES"
   end
 end
 
-if user_response == "NO"
+if user_response == "no"
   puts "The tables are up to date!"
 end
 
@@ -276,12 +275,4 @@ else
 end
 
 puts "Thank You, Goodbye!"
-
-# ----------------------------------------------------
-
-
-# explore ORM by retrieving data
-#app_1 = db.execute("SELECT * FROM appetizers")
-#puts app_1.class
-#p app_1
 
