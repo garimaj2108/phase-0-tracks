@@ -155,7 +155,7 @@ if table_name == "no additions"
   puts "The table is up to date"
 end
 
-# To select menu combinations
+# To select and update menu combinations
 puts "Please enter if you would like to set Menu options (YES / NO)"
 set_menu = gets.chomp
 if set_menu == "YES"
@@ -178,7 +178,7 @@ elsif set_menu == "NO"
 end
 
 
-
+# To view the different menu combinations
 puts "The MENU OPTIONS ARE:'\n'"
 menu_1 = view_menu(db)
 menu_2 = view_menu_1(db)
@@ -194,8 +194,6 @@ puts "AND HERE COMES THE THIRD OPTION"
 p menu_3
 puts "'\n'"
 puts "Thank You, Goodbye!"
-
-
 
 
 
