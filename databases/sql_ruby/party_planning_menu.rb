@@ -60,11 +60,14 @@ db.execute(create_table_cmd)
 db.execute(create_table_cmd_1)
 db.execute(create_table_cmd_2)
 
+# ----------------------------------------------------
 # add a test appetizer
 #db.execute("INSERT INTO appetizers (appetizer_name, appetizer_description) VALUES ('hummus', 'ground garbanzo beans seasoned with garlic and roasted red chilli peppers')")
 
 # delete the test appetizer
 #db.execute("DELETE FROM appetizers WHERE appetizer_id = 1")
+
+# ----------------------------------------------------
 
 # Add values to the appetizer table
 def create_appetizers(db, appetizer_name, appetizer_description)
@@ -86,6 +89,8 @@ def create_menu(db, app_id, main_courses_id, desserts_id)
   db.execute("INSERT INTO menu (app_id, main_courses_id, desserts_id) VALUES (?, ?, ?)", [app_id, main_courses_id, desserts_id])
 end
 
+# ----------------------------------------------------
+
 # Select which columns to display and join the menu table with appetizers, main_course and dessert tables
 def view_menu(db)
   db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
@@ -104,7 +109,19 @@ def view_menu_2(db)
    FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id) WHERE menu.menu_id > 10 AND menu.menu_id < 14")
 end
 
+def dessert_update(db, dessert_id, dessert_name, dessert_description)
+  db.execute("UPDATE dessert SET dessert_name = '#{dessert_name}', dessert_description = '#{dessert_description}' WHERE dessert_id = '#{dessert_id}'")
+end
 
+def appetizer_update(db, appetizer_id, appetizer_name, appetizer_description)
+  db.execute("UPDATE appetizers SET appetizer_name = '#{appetizer_name}', appetizer_description = '#{appetizer_description}' WHERE appetizer_id = '#{appetizer_id}'")
+end
+
+def main_course_update(db, main_course_id, main_course_name, main_course_description)
+  db.execute("UPDATE main_course SET name = '#{main_course_name}', main_course_descr = '#{main_course_description}' WHERE main_course_id = '#{main_course_id}'")
+end
+
+# ----------------------------------------------------
 
 # Driver Code
 puts "Welcome to Menu Management System!"
@@ -157,8 +174,8 @@ end
 
 # To select and update menu combinations
 puts "Please enter if you would like to set Menu options (YES / NO)"
-set_menu = gets.chomp
-if set_menu == "YES"
+set_menu = gets.chomp.downcase!
+if set_menu == "yes"
   puts "To exit anytime in the program, type 0"
   while true
     puts "Enter appetizer id (1 - 10)"
@@ -173,10 +190,70 @@ if set_menu == "YES"
     create_menu(db, appetizer_idd, main_course_idd, dessert_idd)
   end
 
-elsif set_menu == "NO"
+elsif set_menu == "no"
   puts "You chose not to set any menu options!"
 end
 
+# ----------------------------------------------------
+
+puts "Would you like to update any table? (YES / NO)"
+user_response = gets.chomp.downcase!
+if user_response == "YES"
+  puts "To exit anytime in the program, type 0 whre numbers have to be entered or enter DONE"
+
+  puts "Which table would you like to update (Appetizer, Main Course OR Dessert)"
+  table_update = gets.chomp.downcase!
+  if table_update == "dessert"
+    while true
+    puts "Enter the Dessert id to be updated :"
+    dessert_id = gets.to_i
+    break if dessert_id == 0
+    puts "Enter Dessert name :"
+    dessert_name = gets.chomp
+    break if dessert_name == "DONE"
+    puts "Enter Dessert description"
+    dessert_description = gets.chomp
+    break if dessert_description == "DONE"
+    dessert_update(db, dessert_id, dessert_name, dessert_description)
+    end
+  end
+
+  if table_update == "appetizer"
+    while true
+    puts "Enter the Appetizer id to be updated :"
+    appetizer_id = gets.to_i
+    break if appetizer_id == 0
+    puts "Enter Appetizer name :"
+    appetizer_name = gets.chomp
+    break if appetizer_name == "DONE"
+    puts "Enter Appetizer description"
+    appetizer_description = gets.chomp
+    break if appetizer_description == "DONE"
+    appetizer_update(db, appetizer_id, appetizer_name, appetizer_description)
+    end
+  end
+
+  if table_update == "main course"
+    while true
+    puts "Enter the Main course id to be updated :"
+    main_course_id = gets.to_i
+    break if main_course_id == 0
+    puts "Enter Main course name :"
+    main_course_name = gets.chomp
+    break if main_course_name == "DONE"
+    puts "Enter Main course description"
+    main_course_description = gets.chomp
+    break if main_course_description == "DONE"
+    main_course_update(db, main_course_id, main_course_name, main_course_description)
+    end
+  end
+end
+
+if user_response == "NO"
+  puts "The tables are up to date!"
+end
+
+# ----------------------------------------------------
 
 # To view the different menu combinations
 menu_1 = view_menu(db)
@@ -200,6 +277,7 @@ end
 
 puts "Thank You, Goodbye!"
 
+# ----------------------------------------------------
 
 
 # explore ORM by retrieving data
