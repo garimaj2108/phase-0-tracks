@@ -1,0 +1,110 @@
+QUERIES
+
+# List of Tables
+sqlite> .tables
+appetizers   dessert      main_course  menu
+
+------------------------------------------------------
+APPETIZER TABLE CONTENTS
+
+QUERY:-
+select * from appetizers;
+
+OUTPUT:-
+1|Hummus & Pita bread|A blend of ground chickpeas and tahini topped with olive oil and spices, served as cold dip with fresh pita bread.
+2|Samosa|Seasoned potato and peas in pastry shell.
+3|Bruschetta Napoletana|Toasted slices of homemade french baguette topped with fresh chopped tomatoes, red onions, garlic, basil and olive oil.
+4|Tomato Caprese|Fresh Mozarella, Tomato slices, Basil, Oregano, Olive oil and Balsamic Vinegar
+5|Tabouli|Parsley,mint, green onions, cucumber, bell pepper, tomoatoes, bulgur
+6|Yalanji|Grape leaves stufefd w/seasoned rice, parsely, mint, onions, tomatoes, dill yogurt, extra virgin olive oil
+7|Pani Puri|Puffed lentil crisps served with a mix of potato and mung beans with spiced mint and cilantro flavored water
+8|Chole Aloo Tikki|Shallow fried potato cakes served with garbanzo beans, mint and tamarind chutneys
+9|Poh Piah Tod|Deep fried spring roll stufefd w/silver noodle, cabbage, carrot & shitake mushroom. Served w/plum sauce
+10|Golden Tofu|Deep fried tofu, served w/sweet & sour sauce topped with ground peanut
+
+------------------------------------------------------
+MAIN COURSE TABLE CONTENTS
+
+QUERY:-
+select * from main_course;
+OUTPUT:-
+1|Sabanech|Spinach, black-eyed beans, onions, fresh dill, dry lime
+2|Sambusak|Spinach, mushrooms, feta, almonds, onions in filo dough, herb tahini, salata a
+3|Tabsi Falafel|Falafel, eggplant, onions, tomatoes, peppers, garlic, mild curry and dry lime
+4|Malai Kofta|Deep fried cheese and potato dumplings cooked in a tomato cream sauce
+5|Mushroom Mutter Makhana|Mushrooms and peas cooked with lotus seeds in an onion ginger curry
+6|Chicken Tikka Masala|Chicken tikka cooked in a mild tomato sauce
+7|Gnocchi aal Pesto|Potato dumplings in a rich pesto cream sauce topped with kalamata olives
+8|Ravioli di Funghi Selvatici|Wild mushroom ravioli in a white wine cream sauce with roasted bell peppers, shallots and basil
+9|Fettuccine alla Diavola|Flat noodles with chunks of marinated eggplant, garlic, onions, basil and spicy marinara sauce
+10|Kao Pad Kra Pow (Basil Fried Rice)|Spicy thai fried rice w/onion, bell pepper, basil and choice of meat
+
+------------------------------------------------------
+DESSERT TABLE CONTENTS
+
+QUERY:-
+select * from dessert;
+OUTPUT:-
+1|Baklava|Pastry stuffed with Pistachio and seasoned with cardamom
+2|Gulab Jamun|Deep Fried balls soaked in sugar and rose syrup garnished with saffron
+3|Tiramisu|Ladyfingers dipped in coffee and layered with mascarpone
+4|Dark Velvet Cake|Cake topped with special icing and almonds
+5|Creme Brulee|Rich custard topped with caramel layer
+6|Banoffe Pie|Decadent pie with bananas, cream and toffee
+7|Apple pie|Pie filled with crisp tart apples and cinnamon, drizzled with caramel
+8|Black out cake|Decadent chocolate cake with chocolate chips and finished with almonds
+9|Fresh Strawberry Shortcake|Shortcake Topped with Vanilla Ice Cream, Fresh Strawberries and Whipped Cream
+10|Chocolate Tower Truffle Cake|Layers and Layers of Fudge Cake with Chocolate Truffle Cream and Chocolate Mousse
+
+------------------------------------------------------
+QUERY THAT JOINS APPETIZERS, MAIN COURSE AND DESSERT TABLES WITH MENU TABLE
+
+QUERY:-
+SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
+FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id);
+
+OUTPUT:-
+1|Bruschetta Napoletana|Toasted slices of homemade french baguette topped with fresh chopped tomatoes, red onions, garlic, basil and olive oil.|Tabsi Falafel|Falafel, eggplant, onions, tomatoes, peppers, garlic, mild curry and dry lime|Banoffe Pie|Decadent pie with bananas, cream and toffee
+2|Samosa|Seasoned potato and peas in pastry shell.|Malai Kofta|Deep fried cheese and potato dumplings cooked in a tomato cream sauce|Black out cake|Decadent chocolate cake with chocolate chips and finished with almonds
+3|Hummus & Pita bread|A blend of ground chickpeas and tahini topped with olive oil and spices, served as cold dip with fresh pita bread.|Mushroom Mutter Makhana|Mushrooms and peas cooked with lotus seeds in an onion ginger curry|Dark Velvet Cake|Cake topped with special icing and almonds
+4|Tomato Caprese|Fresh Mozarella, Tomato slices, Basil, Oregano, Olive oil and Balsamic Vinegar|Mushroom Mutter Makhana|Mushrooms and peas cooked with lotus seeds in an onion ginger curry|Baklava|Pastry stuffed with Pistachio and seasoned with cardamom
+5|Tabouli|Parsley,mint, green onions, cucumber, bell pepper, tomoatoes, bulgur|Sabanech|Spinach, black-eyed beans, onions, fresh dill, dry lime|Fresh Strawberry Shortcake|Shortcake Topped with Vanilla Ice Cream, Fresh Strawberries and Whipped Cream
+6|Yalanji|Grape leaves stufefd w/seasoned rice, parsely, mint, onions, tomatoes, dill yogurt, extra virgin olive oil|Sambusak|Spinach, mushrooms, feta, almonds, onions in filo dough, herb tahini, salata a|Creme Brulee|Rich custard topped with caramel layer
+7|Pani Puri|Puffed lentil crisps served with a mix of potato and mung beans with spiced mint and cilantro flavored water|Chicken Tikka Masala|Chicken tikka cooked in a mild tomato sauce|Tiramisu|Ladyfingers dipped in coffee and layered with mascarpone
+8|Chole Aloo Tikki|Shallow fried potato cakes served with garbanzo beans, mint and tamarind chutneys|Gnocchi aal Pesto|Potato dumplings in a rich pesto cream sauce topped with kalamata olives|Apple pie|Pie filled with crisp tart apples and cinnamon, drizzled with caramel
+9|Poh Piah Tod|Deep fried spring roll stufefd w/silver noodle, cabbage, carrot & shitake mushroom. Served w/plum sauce|Ravioli di Funghi Selvatici|Wild mushroom ravioli in a white wine cream sauce with roasted bell peppers, shallots and basil|Chocolate Tower Truffle Cake|Layers and Layers of Fudge Cake with Chocolate Truffle Cream and Chocolate Mousse
+10|Golden Tofu|Deep fried tofu, served w/sweet & sour sauce topped with ground peanut|Fettuccine alla Diavola|Flat noodles with chunks of marinated eggplant, garlic, onions, basil and spicy marinara sauce|Fresh Strawberry Shortcake|Shortcake Topped with Vanilla Ice Cream, Fresh Strawberries and Whipped Cream
+11|Chole Aloo Tikki|Shallow fried potato cakes served with garbanzo beans, mint and tamarind chutneys|Sabanech|Spinach, black-eyed beans, onions, fresh dill, dry lime|Chocolate Tower Truffle Cake|Layers and Layers of Fudge Cake with Chocolate Truffle Cream and Chocolate Mousse
+12|Poh Piah Tod|Deep fried spring roll stufefd w/silver noodle, cabbage, carrot & shitake mushroom. Served w/plum sauce|Sambusak|Spinach, mushrooms, feta, almonds, onions in filo dough, herb tahini, salata a|Fresh Strawberry Shortcake|Shortcake Topped with Vanilla Ice Cream, Fresh Strawberries and Whipped Cream
+13|Golden Tofu|Deep fried tofu, served w/sweet & sour sauce topped with ground peanut|Tabsi Falafel|Falafel, eggplant, onions, tomatoes, peppers, garlic, mild curry and dry lime|Black out cake|Decadent chocolate cake with chocolate chips and finished with almonds
+14|Hummus & Pita bread|A blend of ground chickpeas and tahini topped with olive oil and spices, served as cold dip with fresh pita bread.|Tabsi Falafel|Falafel, eggplant, onions, tomatoes, peppers, garlic, mild curry and dry lime|Apple pie|Pie filled with crisp tart apples and cinnamon, drizzled with caramel
+15|Samosa|Seasoned potato and peas in pastry shell.|Malai Kofta|Deep fried cheese and potato dumplings cooked in a tomato cream sauce|Banoffe Pie|Decadent pie with bananas, cream and toffee
+16|Bruschetta Napoletana|Toasted slices of homemade french baguette topped with fresh chopped tomatoes, red onions, garlic, basil and olive oil.|Mushroom Mutter Makhana|Mushrooms and peas cooked with lotus seeds in an onion ginger curry|Creme Brulee|Rich custard topped with caramel layer
+17|Tomato Caprese|Fresh Mozarella, Tomato slices, Basil, Oregano, Olive oil and Balsamic Vinegar|Chicken Tikka Masala|Chicken tikka cooked in a mild tomato sauce|Dark Velvet Cake|Cake topped with special icing and almonds
+
+------------------------------------------------------
+QUERY THAT JOINS APPETIZERS, MAIN COURSE AND DESSERT TABLES WITH MENU TABLE WITH A CONDITIONAL
+
+QUERY:-
+SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
+FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id) WHERE menu.menu_id < 5;
+
+OUTPUT:-
+1|Bruschetta Napoletana|Toasted slices of homemade french baguette topped with fresh chopped tomatoes, red onions, garlic, basil and olive oil.|Tabsi Falafel|Falafel, eggplant, onions, tomatoes, peppers, garlic, mild curry and dry lime|Banoffe Pie|Decadent pie with bananas, cream and toffee
+2|Samosa|Seasoned potato and peas in pastry shell.|Malai Kofta|Deep fried cheese and potato dumplings cooked in a tomato cream sauce|Black out cake|Decadent chocolate cake with chocolate chips and finished with almonds
+3|Hummus & Pita bread|A blend of ground chickpeas and tahini topped with olive oil and spices, served as cold dip with fresh pita bread.|Mushroom Mutter Makhana|Mushrooms and peas cooked with lotus seeds in an onion ginger curry|Dark Velvet Cake|Cake topped with special icing and almonds
+4|Tomato Caprese|Fresh Mozarella, Tomato slices, Basil, Oregano, Olive oil and Balsamic Vinegar|Mushroom Mutter Makhana|Mushrooms and peas cooked with lotus seeds in an onion ginger curry|Baklava|Pastry stuffed with Pistachio and seasoned with cardamom
+
+------------------------------------------------------
+QUERY THAT JOINS APPETIZERS, MAIN COURSE AND DESSERT TABLES WITH MENU TABLE WITH A CONDITIONAL
+
+QUERY:-
+SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
+FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id) WHERE menu.menu_id > 10 AND menu.menu_id < 14;
+
+OUTPUT:-
+11|Chole Aloo Tikki|Shallow fried potato cakes served with garbanzo beans, mint and tamarind chutneys|Sabanech|Spinach, black-eyed beans, onions, fresh dill, dry lime|Chocolate Tower Truffle Cake|Layers and Layers of Fudge Cake with Chocolate Truffle Cream and Chocolate Mousse
+12|Poh Piah Tod|Deep fried spring roll stufefd w/silver noodle, cabbage, carrot & shitake mushroom. Served w/plum sauce|Sambusak|Spinach, mushrooms, feta, almonds, onions in filo dough, herb tahini, salata a|Fresh Strawberry Shortcake|Shortcake Topped with Vanilla Ice Cream, Fresh Strawberries and Whipped Cream
+13|Golden Tofu|Deep fried tofu, served w/sweet & sour sauce topped with ground peanut|Tabsi Falafel|Falafel, eggplant, onions, tomatoes, peppers, garlic, mild curry and dry lime|Black out cake|Decadent chocolate cake with chocolate chips and finished with almonds
+
+------------------------------------------------------
