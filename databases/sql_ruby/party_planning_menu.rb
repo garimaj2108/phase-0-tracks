@@ -111,8 +111,8 @@ puts "Welcome to Menu Management System!"
 puts "This system will help you maintain and manage your menu options!'\n'"
 
 # Based on user input, a specific table will be selected for addition of items
-puts "Enter the table name that you would like to update (appetizers/ main course/ dessert/ no additions)"
-table_name = gets.chomp
+puts "Enter the table name that you would like to update (Appetizers/ Main course/ Dessert/ No update)"
+table_name = gets.chomp.downcase!
 
 if table_name == "appetizers"
   while true
@@ -151,7 +151,7 @@ if table_name == "dessert"
 end
 
 # If user selects no additons, no inserts are made to the table
-if table_name == "no additions"
+if table_name == "no update"
   puts "The table is up to date"
 end
 
@@ -179,20 +179,25 @@ end
 
 
 # To view the different menu combinations
-puts "The MENU OPTIONS ARE:'\n'"
 menu_1 = view_menu(db)
 menu_2 = view_menu_1(db)
 menu_3 = view_menu_2(db)
 
-puts "The FIRST MENU OPTION IS A COMPREHENSIVE LIST."
-p menu_1
-puts "'\n'"
-puts "HERE IS THE SECOND MENU OPTION"
-p menu_2
-puts "'\n'"
-puts "AND HERE COMES THE THIRD OPTION"
-p menu_3
-puts "'\n'"
+puts "Select menu option to view (menu_1, menu_2, menu_3)"
+menu_view = gets.chomp
+if menu_view == "menu_1"
+  puts "The FIRST MENU OPTION IS A COMPREHENSIVE LIST."
+  p menu_1
+elsif menu_view == "menu_2"
+  puts "HERE IS THE SECOND MENU OPTION !"
+  p menu_2
+elsif menu_view == "menu_3"
+  puts "THE THIRD MENU OPTION:"
+  p menu_3
+else
+  puts " Please enter correct menu option for viewing"
+end
+
 puts "Thank You, Goodbye!"
 
 
