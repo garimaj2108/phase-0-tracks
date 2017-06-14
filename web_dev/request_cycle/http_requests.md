@@ -1,3 +1,4 @@
+#Release 0
 **What are some common HTTP status codes?**
 
 1. 404 Not Found -
@@ -46,5 +47,27 @@
 * A Web server has no memory so the hosted Web site you are visiting transfers a cookie file of the browser on your computer's hard disk so that the Web site can remember who you are and your preferences. This message exchange allows the Web server to use this information to present you with customized Web pages. So, for example, instead of seeing just a generic welcome page you might see a welcome page with your name on it.
 
 -------------------------------------------------------
+#Release 1
+
+**What are some of the key design philosophies of the Linux operating system?**
+
+There are nine major tenets to the Linux philosophy.
+
+Small is Beautiful
+Each Program Does One Thing Well
+Prototype as Soon as Possible
+Choose Portability Over Efficiency
+Store Data in Flat Text Files
+Use Software Leverage
+Use Shell Scripts to Increase Leverage and Portability
+Avoid Captive User Interfaces
+Make Every Program a Filter
 
 
+**In your own words, what is a VPS (virtual private server)? What, according to your research, are the advantages of using a VPS?**
+
+A virtual private server is a virtual machine, which is sold as service (SAAS offering) by software companies.
+The benefits of using a VPS is that it is extremely cost efefctive
+
+
+**Optional bonus question: Why is it considered a bad idea to run programs as the root user on a Linux system?**
