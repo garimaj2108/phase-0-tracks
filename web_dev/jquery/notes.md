@@ -30,3 +30,12 @@
 
 * To be able to access or modify HTML using JQuery, because we might want to change something on the page after it loads.
 
+** I used the following order to go through the JQuery session: **
+
+* How to install jQuery in a web project.
+
+* The definitions of important web development concepts such as API and CDN.
+
+* Common jQuery selectors, events, and effects.
+
+* Experimented with the syntax, effects, events and selectors.
