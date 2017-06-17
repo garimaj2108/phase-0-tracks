@@ -8,7 +8,7 @@ require 'faker'
 
 # Create SQLite3 database
 db = SQLite3::Database.new("party_menu.db")
-#db.results_as_hash = true
+db.results_as_hash = true
 
 
 # Fancy string delimiters
@@ -92,21 +92,31 @@ end
 # ----------------------------------------------------
 
 # Select which columns to display and join the menu table with appetizers, main_course and dessert tables
+# Displays menu
 def view_menu(db)
-  db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
+  menu_one = db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
    FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id)")
+  menu_one.each do |menu_item|
+    puts "Appetizer: #{menu_item['appetizer_name']} Appetizer description: #{menu_item['appetizer_description']} Main course: #{menu_item['name']} Main course description: #{menu_item['main_course_descr']} Dessert: #{menu_item['dessert_name']} Dessert description: #{menu_item['dessert_description']}"
+  end
 end
 
 # Select which columns to display,join the menu table with appetizers, main_course and dessert table and provide a conditional to display specific rows
 def view_menu_1(db)
-  db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
+  menu_two = db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
    FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id) WHERE menu.menu_id < 5 ")
+  menu_two.each do |menu_item|
+    puts "Appetizer: #{menu_item['appetizer_name']} Appetizer description: #{menu_item['appetizer_description']} Main course: #{menu_item['name']} Main course description: #{menu_item['main_course_descr']} Dessert: #{menu_item['dessert_name']} Dessert description: #{menu_item['dessert_description']}"
+  end
 end
 
 # Select which columns to display,join the menu table with appetizers, main_course and dessert table and provide a conditional to display specific rows
 def view_menu_2(db)
-  db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
+  menu_three = db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
    FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id) WHERE menu.menu_id > 10 AND menu.menu_id < 14")
+  menu_three.each do |menu_item|
+    puts "Appetizer: #{menu_item['appetizer_name']}, Appetizer description: #{menu_item['appetizer_description']}, Main course: #{menu_item['name']} Main course description: #{menu_item['main_course_descr']}, Dessert: #{menu_item['dessert_name']}, Dessert description: #{menu_item['dessert_description']}"
+  end
 end
 
 def dessert_update(db, dessert_id, dessert_name, dessert_description)
@@ -271,7 +281,7 @@ elsif menu_view == "menu_3"
   puts "THE THIRD MENU OPTION:"
   p menu_3
 else
-  puts " Please enter correct menu option for viewing"
+  puts " Please enter correct menu option for viewing!"
 end
 
 puts "Thank You, Goodbye!"
