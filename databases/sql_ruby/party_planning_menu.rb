@@ -96,27 +96,48 @@ end
 def view_menu(db)
   menu_one = db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
    FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id)")
+  response = ""
   menu_one.each do |menu_item|
-    puts "Appetizer: #{menu_item['appetizer_name']} Appetizer description: #{menu_item['appetizer_description']} Main course: #{menu_item['name']} Main course description: #{menu_item['main_course_descr']} Dessert: #{menu_item['dessert_name']} Dessert description: #{menu_item['dessert_description']}"
+    response << "Appetizer: #{menu_item['appetizer_name']}, "
+    response << "Appetizer description: #{menu_item['appetizer_description']}, "
+    response << "Main course: #{menu_item['name']}, "
+    response << "Main course description: #{menu_item['main_course_descr']}, "
+    response <<  "Dessert: #{menu_item['dessert_name']}, "
+    response << "Dessert description: #{menu_item['dessert_description']} "
   end
+  response
 end
 
 # Select which columns to display,join the menu table with appetizers, main_course and dessert table and provide a conditional to display specific rows
 def view_menu_1(db)
   menu_two = db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
    FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id) WHERE menu.menu_id < 5 ")
+  response_1 = ""
   menu_two.each do |menu_item|
-    puts "Appetizer: #{menu_item['appetizer_name']} Appetizer description: #{menu_item['appetizer_description']} Main course: #{menu_item['name']} Main course description: #{menu_item['main_course_descr']} Dessert: #{menu_item['dessert_name']} Dessert description: #{menu_item['dessert_description']}"
+    response_1 << "Appetizer: #{menu_item['appetizer_name']}, "
+    response_1 << "Appetizer description: #{menu_item['appetizer_description']}, "
+    response_1 << "Main course: #{menu_item['name']}, "
+    response_1 << "Main course description: #{menu_item['main_course_descr']}, "
+    response_1 <<  "Dessert: #{menu_item['dessert_name']}, "
+    response_1 << "Dessert description: #{menu_item['dessert_description']} "
   end
+  response_1
 end
 
 # Select which columns to display,join the menu table with appetizers, main_course and dessert table and provide a conditional to display specific rows
 def view_menu_2(db)
   menu_three = db.execute("SELECT menu.menu_id, appetizers.appetizer_name, appetizers.appetizer_description, main_course.name, main_course.main_course_descr, dessert.dessert_name, dessert.dessert_description
    FROM appetizers, main_course, dessert JOIN menu ON (menu.app_id = appetizers.appetizer_id AND menu.main_courses_id = main_course.main_course_id AND menu.desserts_id = dessert.dessert_id) WHERE menu.menu_id > 10 AND menu.menu_id < 14")
+  response_2 = ""
   menu_three.each do |menu_item|
-    puts "Appetizer: #{menu_item['appetizer_name']}, Appetizer description: #{menu_item['appetizer_description']}, Main course: #{menu_item['name']} Main course description: #{menu_item['main_course_descr']}, Dessert: #{menu_item['dessert_name']}, Dessert description: #{menu_item['dessert_description']}"
+    response_2 << "Appetizer: #{menu_item['appetizer_name']}, "
+    response_2 << "Appetizer description: #{menu_item['appetizer_description']}, "
+    response_2 << "Main course: #{menu_item['name']}, "
+    response_2 << "Main course description: #{menu_item['main_course_descr']}, "
+    response_2 <<  "Dessert: #{menu_item['dessert_name']}, "
+    response_2 << "Dessert description: #{menu_item['dessert_description']} "
   end
+  response_2
 end
 
 def dessert_update(db, dessert_id, dessert_name, dessert_description)
@@ -273,7 +294,7 @@ puts "Select menu option to view (menu_1, menu_2, menu_3)"
 menu_view = gets.chomp
 if menu_view == "menu_1"
   puts "The FIRST MENU OPTION IS A COMPREHENSIVE LIST."
-  p menu_1
+  puts menu_1
 elsif menu_view == "menu_2"
   puts "HERE IS THE SECOND MENU OPTION !"
   p menu_2
