@@ -88,3 +88,15 @@ get '/students/campus/:campus' do
   campus.to_s
 end
 
+# Is Sinatra the only web app library in Ruby? What are some others?
+# Ruby on Rails
+# Volt
+# Cramp
+# Lattice etc...
+
+# Are SQLite and the sqlite3 gem your only options for using a database with Sinatra? What are some others?
+# Heroku
+# Datamapper etc..
+
+# What is meant by the term web stack?
+# A Web stack is the collection of software required for Web development. At a minimum, a Web stack contains an operating system (OS), a programming language, database software and a Web server.
